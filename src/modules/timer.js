@@ -28,9 +28,9 @@ const timer = (deadLine) => {
             timerHours.textContent = '00';
             timerMinutes.textContent = '00';
             timerSeconds.textContent = '00';
-            return false
+            return false;
         }
-        return true
+        return true;
     }
 
     const startClock = () => {
