@@ -28,18 +28,16 @@ const timer = (deadLine) => {
             timerHours.textContent = '00';
             timerMinutes.textContent = '00';
             timerSeconds.textContent = '00';
+            return false
         }
+        return true
     }
 
     const startClock = () => {
-        let idInterval = setInterval(() => {
-            const {timeRemaining} = getTimeRemaining();
-            if (timeRemaining < 0) {
-                clearInterval(idInterval);
-            }
-            updateClock();
-        }, 1000);
-}
+        if(updateClock()) {
+            let idInterval = setInterval(() => !updateClock() && clearInterval(idInterval), 1000)
+        }
+    }
 
     startClock();
 
