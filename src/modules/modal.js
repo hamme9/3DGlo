@@ -2,9 +2,7 @@ const modal = () => {
     const buttons = document.querySelectorAll('.popup-btn')
     const modal = document.querySelector('.popup')
     const modalContent = modal.querySelector('.popup-content')
-    const closeBtn = modal.querySelector('.popup-close')
-
-    
+  
     const animate = () => {
         modal.style.display = 'block'
         if(screen.width > 768) {
@@ -20,8 +18,10 @@ const modal = () => {
 
     buttons.forEach(btn => btn.addEventListener('click', animate))
 
-    closeBtn.addEventListener('click', () => {
-        modal.style.display = 'none'
+    modal.addEventListener('click', (e) => {
+        if(!e.target.closest('.popup-content') || e.target.classList.contains('popup-close')) {
+            modal.style.display = 'none'
+        }
     })
 
 }
