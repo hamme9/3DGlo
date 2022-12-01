@@ -6,8 +6,8 @@ const modal = () => {
 
     
     const animate = () => {
+        modal.style.display = 'block'
         if(screen.width > 768) {
-            modal.style.display = 'block'
             let animation = modalContent.animate([
                 {transform: 'translateX(-150%)'},
                 {transform: 'translateX(-50px)'}
