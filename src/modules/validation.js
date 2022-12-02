@@ -31,7 +31,7 @@ const validation = () => {
     const validationEmail = () => {
         inputsEmail.forEach((item) => {
             item.addEventListener('input', (e) => {
-                e.target.value = e.target.value.replace(/[^a-zA-Z@-_.!~*']+/,"")
+                e.target.value = e.target.value.replace(/[^а-яА-Я0-9@-_.!~*']+/,"")
             });
         });
     };
