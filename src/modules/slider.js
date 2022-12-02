@@ -10,10 +10,9 @@ const slider = () => {
 
     const addDot = () => {
         for(let i = 0; i < slides.length; i++) {
-            dotsList.insertAdjacentHTML('beforeend', '<li class="dot"></li>')
-            dots = document.querySelectorAll('.dot')
-            dots[0].classList.add('dot-active')
+            dotsList.insertAdjacentHTML('beforeend', `<li class="dot${i ? '' : ' dot-active'}"></li>`)
         }
+        dots = document.querySelectorAll('.dot')
     }
 
     const prevSlide = (elems, index, strClass) => {

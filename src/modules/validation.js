@@ -15,7 +15,7 @@ const validation = () => {
     const validationText = () => {
         inputsText.forEach((item) => {
             item.addEventListener('input', (e) => {
-                e.target.value = e.target.value.replace(/[a-zA-Z0-9]+/, "")
+                e.target.value = e.target.value.replace(/[^а-яё\-\s]+/gi, "")
             });
         });
     };
@@ -31,7 +31,7 @@ const validation = () => {
     const validationEmail = () => {
         inputsEmail.forEach((item) => {
             item.addEventListener('input', (e) => {
-                e.target.value = e.target.value.replace(/[^а-яА-Я0-9@-_.!~*']+/,"")
+                e.target.value = e.target.value.replace(/[^a-z\d@-_.!~*']+/gi,"")
             });
         });
     };
