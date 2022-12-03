@@ -1,3 +1,5 @@
+import { checkValidation } from "./checkValidation.js" 
+
 const validation = () => {
     const inputsCalc = document.querySelectorAll('.calc-block input')
     const inputsText = document.querySelectorAll('.form-name, .mess, #form2-name')
@@ -15,7 +17,11 @@ const validation = () => {
     const validationText = () => {
         inputsText.forEach((item) => {
             item.addEventListener('input', (e) => {
-                e.target.value = e.target.value.replace(/[a-zA-Z0-9]+/, "")
+                e.target.value = e.target.value.replace(/[^а-яё\-\s]+/gi, "")
+
+                if(e.target.classList.contains('error') && checkValidation([e.target])) {
+                    e.target.classList.remove('error')
+                }
             });
         });
     };
@@ -24,6 +30,10 @@ const validation = () => {
         inputsPhone.forEach((item) => {
             item.addEventListener('input', (e) => {
                 e.target.value = e.target.value.replace(/[^0-9-()]+/,"")
+
+                if(e.target.classList.contains('error') && checkValidation([e.target])) {
+                    e.target.classList.remove('error')
+                }
             });
         });
     };
@@ -31,7 +41,11 @@ const validation = () => {
     const validationEmail = () => {
         inputsEmail.forEach((item) => {
             item.addEventListener('input', (e) => {
-                e.target.value = e.target.value.replace(/[^а-яА-Я0-9@-_.!~*']+/,"")
+                e.target.value = e.target.value.replace(/[^a-z\d@-_.!~*']+/gi,"")
+
+                if(e.target.classList.contains('error') && checkValidation([e.target])) {
+                    e.target.classList.remove('error')
+                }
             });
         });
     };
