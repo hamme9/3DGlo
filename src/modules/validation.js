@@ -6,6 +6,8 @@ const validation = () => {
     const inputsEmail = document.querySelectorAll('input[type=email]')
     const inputsPhone = document.querySelectorAll('input[type=tel]')
 
+    
+
     const validationCalc = () => {
         inputsCalc.forEach((item) => {
             item.addEventListener('input', (e) => {
@@ -16,11 +18,12 @@ const validation = () => {
 
     const validationText = () => {
         inputsText.forEach((item) => {
+            item.removeAttribute('required') //удаление валидации которая прописана в строке
             item.addEventListener('input', (e) => {
                 e.target.value = e.target.value.replace(/[^а-яё\-\s]+/gi, "")
 
-                if(e.target.classList.contains('error') && checkValidation([e.target])) {
-                    e.target.classList.remove('error')
+                if (item.classList.contains('error') || item.classList.contains('success')) { 
+                    checkValidation([e.target])
                 }
             });
         });
@@ -28,11 +31,12 @@ const validation = () => {
 
     const validationPhone = () => {
         inputsPhone.forEach((item) => {
+            item.removeAttribute('required') //удаление валидации которая прописана в строке
             item.addEventListener('input', (e) => {
                 e.target.value = e.target.value.replace(/[^0-9-()]+/,"")
 
-                if(e.target.classList.contains('error') && checkValidation([e.target])) {
-                    e.target.classList.remove('error')
+                if (item.classList.contains('error') || item.classList.contains('success')) { 
+                    checkValidation([e.target])
                 }
             });
         });
@@ -41,10 +45,10 @@ const validation = () => {
     const validationEmail = () => {
         inputsEmail.forEach((item) => {
             item.addEventListener('input', (e) => {
-                e.target.value = e.target.value.replace(/[^a-z\d@-_.!~*']+/gi,"")
+                e.target.value = e.target.value.replace(/[^a-z\d@\-_.!~*']+/gi,"")
 
-                if(e.target.classList.contains('error') && checkValidation([e.target])) {
-                    e.target.classList.remove('error')
+                if (item.classList.contains('error') || item.classList.contains('success')) {
+                    checkValidation([e.target])
                 }
             });
         });

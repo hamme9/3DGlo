@@ -15,7 +15,7 @@ validation();
 tabs();
 slider();
 calc(100);
-maskPhone('[name="user_phone"]', '+7 (___) ___-__-__');
+maskPhone('[name="user_phone"]');
 sendForm({
     formId: 'form1',
     someElement: [
