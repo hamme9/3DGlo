@@ -39,6 +39,7 @@ const sendForm = ({
         if(checkValidation(formElements)) {
             statusBlock.textContent = loadText
         }
+        statusBlock.style.color = 'white'
         form.append(statusBlock)
 
         formData.forEach((value, key) => {
