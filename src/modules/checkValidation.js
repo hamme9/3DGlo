@@ -36,12 +36,12 @@ const checkValidation = elems => {
         }
         
         elems.forEach(input => {
-            if (!input.classList.contains('success')) {
+            if (input.classList.contains('error')) {
                 status = false
             }
         })
     })
-
+    console.log(status)
     return status
 }
 

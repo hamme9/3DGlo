@@ -36,9 +36,6 @@ const sendForm = ({
         const formBody = {}
         const formData = new FormData(form)
 
-        if(checkValidation(formElements)) {
-            statusBlock.textContent = loadText
-        }
         statusBlock.style.color = 'white'
         form.append(statusBlock)
 
@@ -75,6 +72,8 @@ const sendForm = ({
 
         if(checkValidation(formElements)) {
             clearCalc()
+
+            statusBlock.textContent = loadText
 
             sendData(formBody)
             .then(data => {
