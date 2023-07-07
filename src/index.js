@@ -8,7 +8,7 @@ import calc from "./modules/calc";
 import sendForm from "./modules/sendForm";
 import maskPhone from "./modules/maskPhone";
 
-timer('12 december 2022');
+timer('12 december 2024');
 menu();
 modal();
 validation();
